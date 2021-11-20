@@ -31,15 +31,14 @@ class TheGame:
     def make_turtle(
         self, shape, color, stretch_width, stretch_length, x_position, y_position
     ):
-        """creates a turtle and sets initial position"""
 
         turt = turtle.Turtle()
-        turt.speed(0)  # Speed of animation, 0 is max
+        turt.speed(0)  
         turt.shape(shape)
         turt.color(color)
         turt.shapesize(stretch_width, stretch_length)
         turt.penup()
-        turt.goto(x_position, y_position)  # Start position
+        turt.goto(x_position, y_position)  
         return turt
 
     def teleport(self, point: tuple):
@@ -136,7 +135,6 @@ class TheGame:
             self.turn = 1
 
     def main(self):
-        """the main function where the game events take place"""
 
         self.window.onscreenclick(self.play)
         self.window.listen()
