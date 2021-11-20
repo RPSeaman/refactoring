@@ -31,14 +31,13 @@ class TheGame:
     def make_turtle(
         self, shape, color, stretch_width, stretch_length, x_position, y_position
     ):
-
         turt = turtle.Turtle()
-        turt.speed(0)  
+        turt.speed(0)
         turt.shape(shape)
         turt.color(color)
         turt.shapesize(stretch_width, stretch_length)
         turt.penup()
-        turt.goto(x_position, y_position)  
+        turt.goto(x_position, y_position)
         return turt
 
     def teleport(self, point: tuple):
@@ -96,12 +95,12 @@ class TheGame:
         for row in range(len(self.grid)):
             for col in range(len(self.grid[0])):
 
-                if row - 3 < len(self.grid) and col - 3 < len(self.grid[row]):
+                if row - 3 >= 0 and col + 3 < len(self.grid[row]):
                     if (
                         self.grid[row][col] == player
-                        and self.grid[row - 1][col - 1] == player
-                        and self.grid[row - 2][col - 2] == player
-                        and self.grid[row - 3][col - 3] == player
+                        and self.grid[row - 1][col + 1] == player
+                        and self.grid[row - 2][col + 2] == player
+                        and self.grid[row - 3][col + 3] == player
                     ):
                         return True
 
@@ -135,7 +134,6 @@ class TheGame:
             self.turn = 1
 
     def main(self):
-
         self.window.onscreenclick(self.play)
         self.window.listen()
         self.draw_grid()
