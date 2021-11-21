@@ -48,9 +48,7 @@ class MazeGame:
         
     
     def draw_grid(self):
-
         self.window.tracer(False)
-        
         self.teleport(self.x_offset, self.y_offset)
 
         for row in range(len(self.grid)):
@@ -90,7 +88,6 @@ class MazeGame:
 
 
     def find_start(self):
-
         for row in range(len(self.grid)):
             for col in range(len(self.grid[0])):
 
@@ -100,7 +97,6 @@ class MazeGame:
 
 
     def read_grid(self):
-
         file = open(self.filename)
         line = file.readline()
         line = line.replace('\n', '')
@@ -115,7 +111,6 @@ class MazeGame:
 
 
     def search_from(self, row, col):
-
         self.steps += 1
 
         if row < 0 or col < 0 or row == len(self.grid) or col == len(self.grid[0]):
@@ -148,7 +143,6 @@ class MazeGame:
         
 
     def main(self):
-
         playground = self.read_grid()
 
         row, col = self.find_start()
